@@ -15,22 +15,25 @@
         default_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  Å  | ESC  |
+            // | SHFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  Å  | ESC  |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-            bindings = <
+        // Simplified: only three layers (base, lower=nums+arrows, raise=symbols+media/edit).
+        // Enter remains mod-tap AltGr for Norwegian symbols when held; Space is plain.
+        // Rightmost thumb now: Lower, Raise, Backspace for quick access.
+        bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T      &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G      &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B      &kp N &kp M  &kp COMMA &kp DOT &kp LBKT &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE      &kp RET &mo 2 &kp RALT
-            >;
+            &kp LGUI &mo 1 &kp SPACE      &mt RALT RET &mo 2 &kp BSPC
+        >;
         };
 
         lower_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+            // | SHFT | BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | BTCLR|     |     |     |     |     |   |     |     |     |     |     |      |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
             bindings = <
    &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
@@ -43,8 +46,8 @@
         raise_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+            // | SHFT |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+            // | CTRL |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
             //
             // Norwegian specifics:
@@ -60,5 +63,7 @@
                              &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
             >;
         };
+
+    // (Removed separate nav + function layers to keep layout minimal.)
     };
 };
